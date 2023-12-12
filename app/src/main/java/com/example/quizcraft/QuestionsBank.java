@@ -289,15 +289,16 @@ public class QuestionsBank {
 
 
     public static List<QuestionsList> getQuestions(String selectedTopicName) {
-        if ("java".equals(selectedTopicName)) {
+        if ("java".equalsIgnoreCase(selectedTopicName)) {
             return javaQuestions();
-        } else if ("android".equals(selectedTopicName)) {
-            return androidQuestions();
-        } else if ("python".equals(selectedTopicName)) {
+        } else if ("python".equalsIgnoreCase(selectedTopicName)) {
             return pythonQuestions();
-        } else {
+        } else if ("html".equalsIgnoreCase(selectedTopicName)) {
             return htmlQuestions();
+        } else {
+            return androidQuestions();
         }
     }
+
 
 }
