@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         python.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedTopicName = "Java";
+                selectedTopicName = "python";
 
                 python.setBackgroundResource(R.drawable.round_stock);
                 java.setBackgroundResource(R.drawable.round_black_white);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         android.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedTopicName = "Java";
+                selectedTopicName = "android";
 
                 android.setBackgroundResource(R.drawable.round_stock);
                 python.setBackgroundResource(R.drawable.round_black_white);
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         html.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedTopicName = "Java";
+                selectedTopicName = "html";
 
                 html.setBackgroundResource(R.drawable.round_stock);
                 python.setBackgroundResource(R.drawable.round_black_white);
