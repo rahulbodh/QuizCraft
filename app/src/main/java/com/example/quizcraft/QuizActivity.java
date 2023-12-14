@@ -153,7 +153,11 @@ public class QuizActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                changeNextQuestion();
+                if (selectedOptionByUser.isEmpty()){
+                    Toast.makeText(QuizActivity.this,"Please select any option!",Toast.LENGTH_SHORT).show();
+                }else{
+                    changeNextQuestion();
+                }
             }
         });
 

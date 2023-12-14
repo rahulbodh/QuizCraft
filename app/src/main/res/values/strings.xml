@@ -22,4 +22,9 @@
     <string name="option_3">option 3</string>
     <string name="option_4">option 4</string>
     <string name="next">Next</string>
+    <string name="image">image</string>
+    <string name="you_ve_successfully_completed_a_quiz">You\'ve Successfully completed a quiz</string>
+    <string name="correct_answer_0">Correct Answer : 0</string>
+    <string name="wrong_answer_0">Wrong Answer : 0</string>
+    <string name="start_new_quiz">Start New Quiz</string>
 </resources>

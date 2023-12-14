@@ -229,7 +229,7 @@ public class QuestionsBank {
                 "An operating system", "");
 
         final QuestionsList aquestion2 = new QuestionsList("Which programming language is primarily used for Android app development?",
-                "Java", "C#", "Python", "Swift",
+                "Python", "C#", "Java", "Swift",
                 "Java", "");
 
         final QuestionsList aquestion3 = new QuestionsList("What is an Activity in Android?",
@@ -238,8 +238,10 @@ public class QuestionsBank {
                 "A user interface component", "");
 
         final QuestionsList aquestion4 = new QuestionsList("What is an APK in the context of Android?",
-                "Android Package Kit", "Application Package Kit",
-                "Android Programming Kit", "Application Processing Kit",
+                 "Application Package Kit",
+                "Android Programming Kit",
+                "Application Processing Kit",
+                "Android Package Kit",
                 "Android Package Kit", "");
 
         final QuestionsList aquestion5 = new QuestionsList("Which XML-based language is used to declare the layout of Android UI elements?",
@@ -252,7 +254,7 @@ public class QuestionsBank {
                 "Specify the app's permissions and components", "");
 
         final QuestionsList aquestion7 = new QuestionsList("What is the main building block of an Android application?",
-                "Service", "Activity", "Intent", "Layout",
+                "Service",  "Intent", "Layout","Activity",
                 "Activity", "");
 
         final QuestionsList aquestion8 = new QuestionsList("What is the role of an Intent in Android?",
