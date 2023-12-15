@@ -179,55 +179,61 @@ public class QuizActivity extends AppCompatActivity {
 
     }
 
-    private  void startTimer(TextView timerTextView){
+    private void startTimer(final TextView timerTextView) {
         quizTimer = new Timer();
 
+        // Set the total time to 60 seconds
+        final int totalTimeInSeconds = 60;
+
         quizTimer.scheduleAtFixedRate(new TimerTask() {
+            int seconds = totalTimeInSeconds;
+
             @Override
             public void run() {
+                if (seconds == 0) {
+                    quizTimer.cancel(); // Stop the timer
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Update UI or start ResultActivity here
+                            timerTextView.setText("00:00");
+                            Toast.makeText(QuizActivity.this, "Time Over", Toast.LENGTH_SHORT).show();
 
-                if (seconds == 0){
-                    totaltimeInMins--;
-                    seconds = 59;
-                }else if (seconds == 0 && totaltimeInMins == 0){
-                    quizTimer.purge();
-                    quizTimer.cancel();
-
-                    Toast.makeText(QuizActivity.this,"Time Over", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(QuizActivity.this,ResultActivity.class);
-                    intent.putExtra("correct", getCorrectAnswers());
-                    intent.putExtra("incorrect", getIncorrectAnswers());
-                    startActivity(intent);
-
-                    finish();
-                } else{
+                            Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+                            intent.putExtra("correct", getCorrectAnswers());
+                            intent.putExtra("incorrect", getIncorrectAnswers());
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+                } else {
                     seconds--;
+                    final int remainingMinutes = seconds / 60;
+                    final int remainingSeconds = seconds % 60;
 
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            // Update the timer TextView
+                            String finalMinutes = String.valueOf(remainingMinutes);
+                            String finalSeconds = String.valueOf(remainingSeconds);
+
+                            if (finalMinutes.length() == 1) {
+                                finalMinutes = "0" + finalMinutes;
+                            }
+
+                            if (finalSeconds.length() == 1) {
+                                finalSeconds = "0" + finalSeconds;
+                            }
+
+                            timerTextView.setText(finalMinutes + ":" + finalSeconds);
+                        }
+                    });
                 }
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        String finalMinutes = String.valueOf(totaltimeInMins);
-                        String finalSeconds =String.valueOf(seconds);
-
-                        if (finalMinutes.length()==1){
-                            finalMinutes = "0" + finalMinutes;
-                        }
-
-                        if (finalSeconds.length()==1){
-                            finalSeconds = "0" + finalSeconds;
-                        }
-
-                        timerTextView.setText(finalMinutes + ":" + finalSeconds);
-                    }
-                });
-
             }
-        },1000,1000);
+        }, 1000, 1000);
     }
+
 
     private int getCorrectAnswers(){
 
