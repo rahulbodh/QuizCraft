@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 public class ResultActivity extends AppCompatActivity {
 
     private TextView congratulationText;
@@ -25,12 +27,17 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        congratulationImage = findViewById(R.id.congratulationImage);
+
         congratulationText = findViewById(R.id.congTextView);
         rightCount = findViewById(R.id.correctAnswer);
         wrongCount = findViewById(R.id.wrongAnswer);
         startNewQuiz = findViewById(R.id.startNewQuiz);
        ImageView  back = findViewById(R.id.backBtn2);
+
+        LottieAnimationView lottieAnimationView = findViewById(R.id.congratulationImg);
+        lottieAnimationView.setAnimation(R.raw.congratulation);
+        lottieAnimationView.loop(true);
+        lottieAnimationView.playAnimation();
 
         final int getCorrectAnswers = getIntent().getIntExtra("correct",0);
         final int getInCorrectAnswers = getIntent().getIntExtra("incorrect",0);

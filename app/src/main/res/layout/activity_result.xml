@@ -21,22 +21,22 @@
             android:src="@drawable/ic_baseline_arrow_back_24"
             android:contentDescription="@string/backbtn" />
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/congratulationImage"
-        android:layout_width="match_parent"
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/congratulationImg"
+        android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/congratulation"
-        android:contentDescription="@string/image" />
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        app:lottie_rawRes="@raw/congratulation"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/congTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/congratulationImage"
+        android:layout_below="@id/congratulationImg"
         android:text="@string/you_ve_successfully_completed_a_quiz"
         android:textSize="22sp"
         android:textColor="@color/white"
